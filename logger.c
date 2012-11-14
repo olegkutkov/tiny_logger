@@ -14,12 +14,16 @@
 #include "logger.h"
 #include "program.h"
 
+extern const char* __progname;
+
 struct logger_t {
 	int max_log_level;
 	int use_stdout;
 	FILE* out_file;
 	void (*logger_func) (const int level, const char*);
 };
+
+#define PROGRAM_NAME __progname
 
 #define LOG_LEVEL_ERROR 0
 #define LOG_LEVEL_WARNING 1
